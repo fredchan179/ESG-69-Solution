@@ -1,6 +1,8 @@
-import { MeshTransmissionMaterial, useGLTF, Text } from '@react-three/drei'
+import { MeshTransmissionMaterial, Text, useGLTF } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
+import { throttle } from 'lodash'
+import { easing } from 'maath'
 import { useRef } from 'react'
 import { type Mesh } from 'three'
 
@@ -9,13 +11,28 @@ export default function Models() {
   const { viewport } = useThree()
   const crystal = useRef<Mesh>(null)
 
-  useFrame(() => {
+  const prevPointerPosition = useRef({ x: 0, y: 0 })
+
+  const updatePointerPosition = throttle((x: number, y: number) => {
+    prevPointerPosition.current.x = x
+    prevPointerPosition.current.y = y
+  }, 500)
+
+  useFrame((state, delta) => {
     if (!crystal.current) return
 
-    // Slowly rotate the crystal on all axes
-    crystal.current.rotation.x += 0.005
-    crystal.current.rotation.y += 0.005
-    crystal.current.rotation.z += 0.005
+    const { current: pointer } = prevPointerPosition
+    const isMoving = pointer.x !== state.pointer.x || pointer.y !== state.pointer.y
+
+    if (isMoving) {
+      easing.dampE(crystal.current.rotation, [-state.pointer.y * Math.PI, Math.PI * state.pointer.x, 0], 0.1, delta)
+    } else {
+      crystal.current.rotation.x += 0.005
+      crystal.current.rotation.y += 0.005
+      crystal.current.rotation.z += 0.005
+    }
+
+    updatePointerPosition(state.pointer.x, state.pointer.y)
   })
 
   const materialProps = useControls({
