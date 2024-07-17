@@ -12,12 +12,20 @@
   "dependencies": {
     "@astrojs/check": "^0.8.1",
     "@astrojs/react": "^3.6.0",
+    "@react-three/drei": "^9.108.4",
+    "@react-three/fiber": "^8.16.8",
+    "@react-three/postprocessing": "^2.16.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "astro": "^4.11.5",
+    "leva": "^0.9.35",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "three": "^0.166.1",
     "typescript": "^5.5.3"
   },
-  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
+  "devDependencies": {
+    "@types/three": "^0.166.0"
+  }
 }
