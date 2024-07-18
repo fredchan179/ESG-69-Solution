@@ -1,13 +1,13 @@
 {
-  "name": "",
-  "type": "module",
+  "name": "esg-69-solution",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "astro": "astro",
     "build": "astro check && astro build",
+    "dev": "astro dev",
     "preview": "astro preview",
-    "astro": "astro"
+    "start": "astro dev"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.1",
@@ -26,9 +26,9 @@
     "three": "^0.166.1",
     "typescript": "^5.5.3"
   },
-  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
   "devDependencies": {
     "@types/lodash": "^4.17.7",
     "@types/three": "^0.166.0"
-  }
+  },
+  "packageManager": "pnpm@9.5.0"
 }
