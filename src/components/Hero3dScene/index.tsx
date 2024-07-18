@@ -5,12 +5,17 @@ import { Leva } from 'leva'
 import { Suspense } from 'react'
 import Models from './Models'
 
-export default function Hero3dScene() {
+type Props = {
+  text1: string
+  text2: string
+}
+
+export default function Hero3dScene(props: Props) {
   return (
     <>
       <Suspense fallback={null}>
         <Canvas dpr={[1, 2]}>
-          <Models />
+          <Models {...props} />
 
           <EffectComposer enableNormalPass depthBuffer>
             <Bloom luminanceThreshold={1} intensity={1} levels={9} luminanceSmoothing={1} mipmapBlur />

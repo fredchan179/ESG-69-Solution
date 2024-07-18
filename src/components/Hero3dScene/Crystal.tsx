@@ -62,7 +62,7 @@ export default function Crystal(props: Props) {
         >
           {/* @ts-ignore */}
           <mesh ref={crystal} {...nodes.CRYSTAL} {...props}>
-            <MeshTransmissionMaterial envMap={texture} {...materialProps} toneMapped={false} envMapIntensity={5} />
+            <MeshTransmissionMaterial {...materialProps} envMap={texture} toneMapped={false} envMapIntensity={5} />
           </mesh>
         </Caustics>
       )}

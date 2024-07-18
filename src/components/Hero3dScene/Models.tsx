@@ -2,30 +2,28 @@ import { Text } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import Crystal from './Crystal'
 
-export default function Models() {
+type Props = {
+  text1: string
+  text2: string
+}
+
+export default function Models({ text1, text2 }: Props) {
   const { viewport } = useThree()
+  const sharedTextProps = {
+    font: '/fonts/BagossExtended-Regular.woff',
+    fontSize: 0.5,
+    color: 'white',
+    anchorX: 'center',
+    anchorY: 'middle'
+  } as const
 
   return (
     <group scale={viewport.width / 4}>
-      <Text
-        font={'/BagossExtended-Regular.woff'}
-        position={[-0.75, 0.25, -1]}
-        fontSize={0.5}
-        color='white'
-        anchorX='center'
-        anchorY='middle'
-      >
-        Redefining
+      <Text {...sharedTextProps} position={[-0.75, 0.25, -1]}>
+        {text1}
       </Text>
-      <Text
-        font={'/BagossExtended-Regular.woff'}
-        position={[0.75, -0.25, -1]}
-        fontSize={0.5}
-        color='white'
-        anchorX='center'
-        anchorY='middle'
-      >
-        the future
+      <Text {...sharedTextProps} position={[0.75, -0.25, -1]}>
+        {text2}
       </Text>
 
       <Crystal scale={[4.5, 4.5, 4.5]} />
