@@ -1,7 +1,7 @@
 import { MeshTransmissionMaterial, Text, useGLTF } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
-import { throttle } from 'lodash'
+import throttle from 'lodash/throttle'
 import { easing } from 'maath'
 import { useRef } from 'react'
 import { type Mesh } from 'three'
