@@ -45,7 +45,7 @@ export default function Models() {
   })
 
   return (
-    <group scale={viewport.width / 3.75}>
+    <group scale={viewport.width / 4}>
       <Text
         font={'/BagossExtended-Regular.woff'}
         position={[-0.75, 0.25, -1]}
