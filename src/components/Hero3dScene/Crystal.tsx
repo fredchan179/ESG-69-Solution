@@ -11,8 +11,8 @@ type Props = MeshProps
 
 export default function Crystal(props: Props) {
   const crystal = useRef<Mesh>()
-  const { nodes } = useGLTF('/crystal.glb')
-  const envTexture = useLoader(RGBELoader, '/crystal-env-map.hdr')
+  const { nodes } = useGLTF('/ESG-69-Solution/crystal.glb')
+  const envTexture = useLoader(RGBELoader, '/ESG-69-Solution/crystal-env-map.hdr')
   const materialProps = useControls('Crystal Material', {
     anisotropy: { value: 0.2, min: 0, max: 1, step: 0.05 },
     thickness: { value: 0.3, min: 0, max: 3, step: 0.05 },

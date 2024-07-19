@@ -10,7 +10,7 @@ type Props = {
 export default function Models({ text1, text2 }: Props) {
   const { viewport } = useThree()
   const sharedTextProps = {
-    font: '/fonts/BagossExtended-Regular.woff',
+    font: '/ESG-69-Solution/fonts/BagossExtended-Regular.woff',
     fontSize: 0.5,
     color: 'white',
     anchorX: 'center',
