@@ -1,4 +1,4 @@
-import { Loader } from '@react-three/drei'
+import { Loader, Stats } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import { Leva } from 'leva'
@@ -14,7 +14,7 @@ export default function Hero3dScene(props: Props) {
   return (
     <>
       <Suspense fallback={null}>
-        <Canvas dpr={[1, 2]}>
+        <Canvas dpr={[1, 2]} shadows>
           <Models {...props} />
 
           <EffectComposer enableNormalPass depthBuffer>
@@ -24,6 +24,7 @@ export default function Hero3dScene(props: Props) {
       </Suspense>
       <Loader containerStyles={{ backgroundColor: 'black' }} />
       <Leva collapsed />
+      <Stats />
     </>
   )
 }
