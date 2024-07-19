@@ -21,7 +21,11 @@ export default function Crystal(props: Props) {
     ior: { value: 1.2, min: 0, max: 3, step: 0.1 },
     chromaticAberration: { value: 0.05, min: 0, max: 1 },
     clearcoat: { value: 0.5, min: 0, max: 1, step: 0.1 },
-    clearcoatRoughness: { value: 0.1, min: 0, max: 1, step: 0.1 }
+    clearcoatRoughness: { value: 0.1, min: 0, max: 1, step: 0.1 },
+    envMapIntensity: { value: 6, min: 0, max: 10, step: 0.1 },
+    iridescence: { value: 1, min: 0, max: 1, step: 0.1 },
+    iridescenceThicknessRange: { value: [0, 1400], min: 0, max: 2000, step: 100 },
+    anisotropicBlur: { value: 0.5, min: 0, max: 1, step: 0.05 },
   })
 
   const prevPointerPosition = useRef({ x: 0, y: 0 })
@@ -62,7 +66,10 @@ export default function Crystal(props: Props) {
         >
           {/* @ts-ignore */}
           <mesh ref={crystal} {...nodes.CRYSTAL} {...props}>
-            <MeshTransmissionMaterial {...materialProps} envMap={texture} toneMapped={false} envMapIntensity={5} />
+            <MeshTransmissionMaterial
+              {...materialProps}
+              envMap={texture}
+            />
           </mesh>
         </Caustics>
       )}
